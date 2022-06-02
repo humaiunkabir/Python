@@ -1,5 +1,6 @@
 
 import sqlite3 as sq3
+import pymssql as SqlServerDb
 from AccountBalanceOperation import AccountBalanceOperation
 
 from AccountHolder import AccountHolder
@@ -124,3 +125,11 @@ class DatabaseOperation:
         conn.commit()
         conn.close()
         return maxId
+    
+    def showSqlServerData(self):
+
+        con = SqlServerDb.connect(host=r"116.193.216.253", user='sa', password='Alock***###', database='RPSABFL')
+        cursor = con.cursor()
+        cursor.execute('SELECT * FROM Vacancy')
+        rows = cursor.fetchall()
+        print(rows)

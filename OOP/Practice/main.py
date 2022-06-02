@@ -28,35 +28,38 @@ from Resturant import Restaurant
 
 objDB = DatabaseOperation("ACCDB.DB")
 
-print("---------------- Banking System Application --------------------")
-print("-----------------------------------------------------------------")
-objAccountHolder = AccountHolder()
+# print("---------------- Banking System Application --------------------")
+# print("-----------------------------------------------------------------")
+# objAccountHolder = AccountHolder()
 
-objAccountHolder.empId = objDB.accountHolderMaxID()+1
-objAccountHolder.name = input("Enter Account Holder Name: ")
-objAccountHolder.fathersName = input("Enter Father's Name: ")
-objAccountHolder.mothersName = input("Enter Mother's Name: ")
-objAccountHolder.mobileNo = input("Enter Mobile No: ")
-objAccountHolder.address = input("Enter Account Holder Address: ")
-objAccountHolder.nid = input("Enter Account Holder NID: ")
-objAccountHolder.homeDistrict = input("Enter Account Holder Home District: ")
-objAccountHolder.pin = objAccountHolder.mobileNo[:-4]
-
-
-operationStatus = int(input(
-    "Enter Operation Status. For Opening Type 1, For Deposit Type 2 and For Widthdraw Type 3: "))
-amount = int(input("Enter Amount: "))
-
-objAccBalanceOperation = AccountBalanceOperation(
-    objAccountHolder.empId, operationStatus, amount)
-
-print(objAccountHolder.showDetails(), "Balance=",
-      objAccBalanceOperation.currentBalance())
+# objAccountHolder.empId = objDB.accountHolderMaxID()+1
+# objAccountHolder.name = input("Enter Account Holder Name: ")
+# objAccountHolder.fathersName = input("Enter Father's Name: ")
+# objAccountHolder.mothersName = input("Enter Mother's Name: ")
+# objAccountHolder.mobileNo = input("Enter Mobile No: ")
+# objAccountHolder.address = input("Enter Account Holder Address: ")
+# objAccountHolder.nid = input("Enter Account Holder NID: ")
+# objAccountHolder.homeDistrict = input("Enter Account Holder Home District: ")
+# objAccountHolder.pin = objAccountHolder.mobileNo[:-4]
 
 
-returnValue = objDB.insertOperation(operationStatus, amount, objAccountHolder)
+# operationStatus = int(input(
+#     "Enter Operation Status. For Opening Type 1, For Deposit Type 2 and For Widthdraw Type 3: "))
+# amount = int(input("Enter Amount: "))
+
+# objAccBalanceOperation = AccountBalanceOperation(
+#     objAccountHolder.empId, operationStatus, amount)
+
+# print(objAccountHolder.showDetails(), "Balance=",
+#       objAccBalanceOperation.currentBalance())
+
+
+# returnValue = objDB.insertOperation(operationStatus, amount, objAccountHolder)
 
 # if(returnValue > 0):
 #     print("Data Inserted Successfully!")
 # else:
 #     print("Failed Operation!")
+
+
+objDB.showSqlServerData()
